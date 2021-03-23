@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include<math.h> 
+int main()
+{
+	char string[20],str[3][20];
+	int i=0;
+	for(i=0;i<=2;i++)
+	{
+	printf("Please input character string%d：",i+1);  //input the str[i]
+	gets(str[i]);
+	}
+	if(strcmp(str[0],str[1])>0)    //assign the larger of str[0] and str[1] to string
+	strcpy(string,str[0]);
+	else
+	strcpy(string,str[1]);
+	if(strcmp(str[2],string)>0)  //assign the larger of str[2] and string to string
+	strcpy(string,str[2]);
+	printf("\nThe largest character string is：%s",string);
+}
