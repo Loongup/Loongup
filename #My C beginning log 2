@@ -1,0 +1,41 @@
+//imitate the filmsl.c Programming in C Primer Plus
+
+#define NSIZE 45
+#define FMAX 2
+struct children
+{
+	char name[NSIZE];
+	int math_grade;
+	int en_grade;
+	char characteeer[1];    //Only one character variable is required,but only an array can indicate success
+};
+int main(void)
+{
+	struct children student[FMAX];
+	int i=0;
+	int j;
+	puts("Enter first student's name:");
+	while(i<FMAX&&gets(student[i].name)!=NULL&&student[i].name[0]!='\0')
+	{
+		puts("Enter student's math scores <0-100>:");
+		scanf("%d",&student[i].math_grade);
+		puts("Enter student's English scores <0-100>:");
+		scanf("%d",&student[i].en_grade);
+		puts("Enter student's character <A-D>:");
+		scanf("%s",student[i].characteeer);
+		//wrong example:scanf("%s",&student[i].characteeer); for the array,the & is reduntant in the function of scanf.
+		printf("wowo   %s\n",student[i].characteeer);
+		i++;
+		while(getchar()!='\n')
+		continue;								//continue语句：跳过本轮迭代的剩余部分，开始下一轮迭代（循环） 
+			puts("Enter next student's name (empty line to stop):");
+	}
+	if(i==0)
+	printf("No data entered.");
+	else
+	printf("Here is the student list:\n");
+	for(j=0;j<i;j++)
+	printf("Name:%s Math scores:%d English scores:%d Character:%s\n",student[j].name,student[j].math_grade,student[j].en_grade,student[j].characteeer);
+	printf("Bye!\n");
+	return 0;
+}
