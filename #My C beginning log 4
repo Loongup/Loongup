@@ -1,0 +1,21 @@
+/*百钱百鸡问题*/
+#include <windows.h>
+#include<stdio.h>
+void main()
+{
+	int x=0,y=0;
+	int i, j, k;
+	for(i=0;i<21;i++)
+		for(j=0;j<34;j++)
+			for (k = 0; k <301; k++)
+			{
+				if (((5 * i + 3 * j + k/3)== 100)&&((i + j + k) == 100)/*&&(k%3==0)*/)
+				{
+					x++;
+					printf("组合%d：%d只公鸡，%d只母鸡，%d只小鸡\n", x, i, j, k);
+					//Sleep(100);
+				}
+				y++;
+			}
+	printf("一共%d种组合，其中，%d种组合符合百钱百鸡条件\n", y, x);
+}
