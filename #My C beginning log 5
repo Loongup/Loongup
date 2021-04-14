@@ -1,0 +1,24 @@
+/*五人三书借书组合方案*/
+#include<stdio.h>
+int main()
+{
+	int x,y,z;
+	int w=0;
+	for(x=1;x<=50;x++)
+	for(y=1;y<=50;y++)
+	for(z=1;z<=50;z++)
+	//for(z=1;z<=50&&x!=y;z++)
+	{
+		if(x!=y&&x!=z&&y!=z)
+		{
+			w++;
+			if(w%5==0)
+			printf("A:%d,B:%d,C:%d\n",x,y,z);
+			else
+			printf("A:%d,B:%d,C:%d\t",x,y,z);
+		}
+	}
+	printf("\n\n\n");
+	printf("There are %d possibilities for borrowing books.\n",w);
+	return 0;
+}
