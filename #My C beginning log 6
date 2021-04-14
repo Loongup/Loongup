@@ -1,0 +1,58 @@
+/*
+三天打鱼两天晒网
+随机抽一日
+问今日打鱼还是晒网
+核心：算某年某月某日据今总共有多少天
+	y=(Long-Long%10000)/10000;
+	m=(Long-10000*y)
+		if(m=1)
+	num+=d;
+	else if((y%4==0&&y%100!=0)||(y%400==0))
+	if(m=2)
+	
+*/
+
+
+#include<stdio.h>
+int main()
+{
+	int y,m,d;
+	int years=y-1990;
+	int mons=m-1;
+	int days=d;
+	int num;
+	int i;
+	int run=0,ping=0;
+	while(1)
+	{
+	printf("Input the date:");
+	scanf("%4d%2d%2d",&y,&m,&d);
+	for(i=1990;i<y;i++)
+	if((i%4==0&&i%100!=0)||(i%400==0))
+	run++;
+	else
+	ping++;
+	num+=365*ping+366*run;
+	switch(m)
+	{
+	case 1:num+=d;break;
+	case 2:num=num+31+d;break;
+	default:
+	for(i=1;i<=m;i++)
+	if(i==1||i==3||i==5||i==7||i==8||i==10||i==12)
+	num=num+31;
+	else if(i==2)
+	num=num+29;
+	else
+	num=num+30;
+	num=num+d;
+	break;
+	}
+	if(num%5>=1&&num%5<=3)
+	printf("打鱼日");
+	else
+	printf("摸鱼日(晒网)");
+	printf("\n");
+	fflush(stdin);
+	}
+}
